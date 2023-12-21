@@ -3,6 +3,8 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     wget
+    gnumake
+    pkg-config
     git
     vim
     home-manager
@@ -19,5 +21,6 @@
 
     lua52Packages.luarocks
     lua52Packages.luadbi-mysql
+    lua52Packages.lgi
   ];
 }

@@ -23,6 +23,7 @@
       luaModules = with pkgs.lua52Packages; [
         luarocks # is the package manager for Lua modules
         luadbi-mysql # Database abstraction layer
+        lgi
       ];
     };
   };
