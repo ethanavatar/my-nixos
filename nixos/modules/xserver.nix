@@ -1,12 +1,5 @@
 { inputs, lib, config, pkgs, ... }:
 {
-  programs.waybar.enable = true;
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    #enableNvidiaPatches = true;
-  };
-
   hardware = {
     opengl.enable = true;
     nvidia.modesetting.enable = true;
@@ -22,8 +15,15 @@
   services.xserver = {
     enable = true;
     displayManager = {
-      defaultSession = "hyprland";
+      defaultSession = "none+awesome";
       gdm.enable = true;
+    };
+    windowManager.awesome = {
+      enable = true;
+      luaModules = with pkgs.lua52Packages; [
+        luarocks # is the package manager for Lua modules
+        luadbi-mysql # Database abstraction layer
+      ];
     };
   };
 

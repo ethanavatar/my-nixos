@@ -10,23 +10,14 @@
     networkmanagerapplet
 
     # For wayland
-    hyprland
     kitty
     xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
-    waybar
-    dunst
     libnotify
-    hyprpaper
-    rofi-wayland
-    meson
-    wayland-protocols
-    wayland-utils
-    wl-clipboard
-    wlroots
 
     pavucontrol
     pipewire
 
+    lua52Packages.luarocks
+    lua52Packages.luadbi-mysql
   ];
 }

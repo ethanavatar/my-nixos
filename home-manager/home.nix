@@ -3,9 +3,6 @@
 { inputs, lib, config, pkgs, ...}:
 {
   imports = [
-    ./modules/hyprland.nix
-    ./modules/waybar.nix
-    ./modules/dunst.nix
   ];
 
   nixpkgs = {

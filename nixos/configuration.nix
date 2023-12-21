@@ -43,4 +43,10 @@
     initialPassword = "password";
     extraGroups = [ "networkmanager" "wheel" ];
   };
+
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+  };
 }
