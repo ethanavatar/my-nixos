@@ -21,4 +21,5 @@
     enable = true;
     x11 = true;
   };
+
 }

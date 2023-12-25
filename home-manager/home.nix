@@ -23,6 +23,7 @@
     wezterm
     nushell
     gh
+    neofetch
 
     nodejs_21
     zig_0_10

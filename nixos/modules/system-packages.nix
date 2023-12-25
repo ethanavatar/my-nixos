@@ -1,6 +1,7 @@
 { inputs, lib, config, pkgs, ... }:
 {  
   nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     wget
     gnumake
@@ -19,6 +20,7 @@
     pavucontrol
     pipewire
 
+    picom-jonaburg
     lua52Packages.luarocks
     lua52Packages.luadbi-mysql
     lua52Packages.lgi
