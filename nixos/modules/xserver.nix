@@ -4,25 +4,39 @@
     opengl.enable = true;
     nvidia.modesetting.enable = true;
   };
-  programs.dconf.enable = true;
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
-  };
-  
-  # Enable the X11 windowing system.
+  programs.dconf.enable = true;
+  services.dbus.enable = true;
+
+  # Required for gdm to launch for some reason
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
   services.xserver = {
     enable = true;
+    # Enable touchpad support (enabled default in most desktopManager).
+    libinput.enable = true;
+
+    layout = "us";
+    xkbVariant = "";
+
     displayManager = {
       defaultSession = "none+awesome";
       gdm.enable = true;
+
+      # TODO: Turn this module into a function that takes a user name.
+      autoLogin = {
+        enable = true;
+        user = "ethane";
+      };
     };
+
     windowManager.awesome = {
       enable = true;
+      # awesome 4.3 uses lua 5.2
       luaModules = with pkgs.lua52Packages; [
-        luarocks # is the package manager for Lua modules
-        luadbi-mysql # Database abstraction layer
+        luarocks
+        luadbi-mysql
         lgi
       ];
     };
@@ -44,38 +58,4 @@
       };
     };
   };
-  security = {
-    pam.services.swaylock = {
-      fprintAuth = false;
-      text = ''
-        auth include login
-      '';
-    };
-  };
-
-  services.dbus.enable = true;
-  xdg = {
-    autostart.enable = true;
-    portal = { 
-      enable = true;
-      wlr.enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-      ]; 
-    };
-  };
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-
-  # Enable automatic login for the user.
-  # TODO: Turn this module into a function that takes a user name.
-  #services.xserver.displayManager.autoLogin.enable = true;
-  #services.xserver.displayManager.autoLogin.user = "ethane";
 }

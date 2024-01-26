@@ -2,6 +2,10 @@
 {  
   nixpkgs.config.allowUnfree = true;
 
+  fonts.packages = with pkgs; [
+    nerdfonts
+  ];
+
   environment.systemPackages = with pkgs; [
     wget
     gnumake
@@ -11,18 +15,14 @@
     home-manager
 
     networkmanagerapplet
-
-    # For wayland
-    kitty
-    xdg-desktop-portal-gtk
-    libnotify
-
     pavucontrol
     pipewire
 
-    picom-jonaburg
+    ## Widow Manager stuff
     lua52Packages.luarocks
     lua52Packages.luadbi-mysql
     lua52Packages.lgi
+    # a fork of picom with rounded corners and animations
+    picom-jonaburg
   ];
 }
