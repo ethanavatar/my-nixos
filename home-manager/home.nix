@@ -24,6 +24,8 @@
     nushell
     gh
     neofetch
+    zoxide
+    starship
 
     nodejs_21
     zig_0_10
