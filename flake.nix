@@ -9,8 +9,10 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # TODO: Maybe useful wwhen I start daiily driving NixOS anywhere
-    # hardware.url = "github:nixos/nixos-hardware";
+    ## Things to consider
+    # lanzaboote
+    # disko
+    # nixos-hardware
   };
 
   outputs = {
