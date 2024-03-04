@@ -8,7 +8,7 @@
   programs.dconf.enable = true;
   services.dbus.enable = true;
 
-  # Required for gdm to launch for some reason
+  # Required for gdm to launch
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 

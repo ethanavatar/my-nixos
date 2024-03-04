@@ -16,14 +16,15 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Zen Kernel is very good but i've already had boot issues with it.
-  # So Im sticking with stable for now.
+  # So Im sticking with stable for now
   boot = {
-    #boot.kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages;
+    #kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = pkgs.linuxPackages_zen;
   };
 
-  ## Bootloader.
-  # TODO: Figure out how to generalize this for other systems.
+  ## Bootloader
+  # TODO: Figure out how to generalize this for other systems
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   
@@ -36,11 +37,13 @@
     syntaxHighlighting.enable = true;
   };
 
-  # Keep POSIX shell as the user default.
+  # Keep POSIX shell as the user default for compatibility
   users.defaultUserShell = pkgs.zsh;
   users.users.ethane = {
     isNormalUser = true;
     description = "Ethan Evans";
+
+    # Non-POSIX login shell
     shell = pkgs.nushell;
 
     # TODO: Real secret management

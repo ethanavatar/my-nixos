@@ -9,14 +9,15 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # TODO: Maybe useful wwhen I start daiily driving NixOS anywhere
-    # hardware.url = "github:nixos/nixos-hardware";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    disko,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -25,8 +26,9 @@
     # Available through 'nixos-rebuild --flake ~/.nixos#nixos'
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
+        #system = "x86_64-linux";
         specialArgs = { inherit inputs outputs; };
-        modules = [ ./nixos/configuration.nix];
+        modules = [ ./nixos/configuration.nix ];
       };
     };
 

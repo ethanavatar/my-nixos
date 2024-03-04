@@ -6,6 +6,7 @@
     nerdfonts
   ];
 
+  # TODO: Use clang globally to replace gcc
   environment.systemPackages = with pkgs; [
     wget
     gnumake
@@ -22,6 +23,7 @@
     lua52Packages.luarocks
     lua52Packages.luadbi-mysql
     lua52Packages.lgi
+
     # a fork of picom with rounded corners and animations
     picom-jonaburg
   ];
