@@ -11,6 +11,10 @@
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    
+    ## Things to consider
+    # lanzaboote
+    # nixos-hardware
   };
 
   outputs = {
