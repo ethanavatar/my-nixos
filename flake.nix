@@ -9,8 +9,8 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
+    #disko.url = "github:nix-community/disko";
+    #disko.inputs.nixpkgs.follows = "nixpkgs";
     
     ## Things to consider
     # lanzaboote
@@ -21,7 +21,7 @@
     self,
     nixpkgs,
     home-manager,
-    disko,
+    #disko,
     ...
   } @ inputs: let
     inherit (self) outputs;

@@ -2,6 +2,7 @@
 {
   hardware = {
     opengl.enable = true;
+    # Fixes invisible cursor on Nvidia GPUs
     nvidia.modesetting.enable = true;
   };
 

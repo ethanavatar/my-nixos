@@ -19,12 +19,15 @@
     pavucontrol
     pipewire
 
-    ## Widow Manager stuff
+    ## Window Manager stuff
     lua52Packages.luarocks
     lua52Packages.luadbi-mysql
     lua52Packages.lgi
 
-    # a fork of picom with rounded corners and animations
+    # A fork of picom with rounded corners and animations
     picom-jonaburg
+
+    # A fallback terminal in-case the configured one is broken 
+    kitty
   ];
 }

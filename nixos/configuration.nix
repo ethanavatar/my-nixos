@@ -1,6 +1,9 @@
 { inputs, lib, config, pkgs, ... }:
 {
   imports = [
+    # Build the user config along with the system one
+    inputs.home-manager.nixosModules.home-manager
+
     ./hardware-configuration.nix
 
     ./modules/locale.nix
@@ -18,15 +21,21 @@
   # Zen Kernel is very good but i've already had boot issues with it.
   # So Im sticking with stable for now
   boot = {
-    kernelPackages = pkgs.linuxPackages;
+    #kernelPackages = pkgs.linuxPackages;
     #kernelPackages = pkgs.linuxPackages_latest;
-    #kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_zen;
   };
 
   ## Bootloader
-  # TODO: Figure out how to generalize this for other systems
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub = {
+    enable = true;
+
+    # TODO: Figure out how to generalize this for other systems
+    device = "/dev/sda";
+    
+    # For dual booting
+    useOSProber = true;
+  }; 
   
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
