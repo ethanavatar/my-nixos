@@ -28,6 +28,6 @@
     picom-jonaburg
 
     # A fallback terminal in-case the configured one is broken 
-    kitty
+    alacritty
   ];
 }

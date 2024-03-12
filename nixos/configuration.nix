@@ -1,9 +1,7 @@
 { inputs, lib, config, pkgs, ... }:
 {
   imports = [
-    # Build the user config along with the system one
-    inputs.home-manager.nixosModules.home-manager
-
+    ./build-home.nix
     ./hardware-configuration.nix
 
     ./modules/locale.nix
